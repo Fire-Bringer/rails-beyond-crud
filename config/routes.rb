@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :restaurants
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :restaurants do
+    # Additional routes that relate to restaurants go here:
+    collection do
+      # "Custome Index"
+      # /restaurants/whatever_word_you_say
+      get 'top'
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # get 'restaurants/top', to: "restaurants#top"
 end
